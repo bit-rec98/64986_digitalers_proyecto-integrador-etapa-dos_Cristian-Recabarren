@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es" id="html" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Acerca de nosotros</title>
+</head>
+<body id="bodyId">
+    <header class="container-fluid headerClass mx-0 px-0 mb-5 sticky-top">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navClass nav-underline" id="navId">
+            <div class="container-fluid navbarItems">
+                <div class="logo">
+                    <a class="navbar-brand mx-3" href="#"><img src="/img/logoLightMode.png" alt="logo" id="logoImg" loading="lazy"></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navItemContainer" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" rel="prefetch" aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" rel="prefetch" href="./products.html">Productos</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" rel="prefetch" href="./aboutMining.html">¿Iniciando en la minería?</a>
+                        </li>
+                    </ul>
+                    <div class="login mx-2" id="log">
+                        <button type="button" class="material-symbols-sharp" id="loginBtn" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                            login
+                        </button>
+                        <button type="button" class="material-symbols-sharp" id="logoutBtn" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">
+                            logout
+                        </button>
+                    </div>
+                    <div class="togglerMode mx-2">
+                        <button class="material-symbols-sharp d-none" id="lightModeBtn">
+                            light_mode
+                        </button>
+                        <button class="material-symbols-sharp d-block" id="darkModeBtn">
+                            dark_mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--* About && form -->
+    <main class="container-fluid">
+        <!-- Login modal -->
+        <section>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="loginForm">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión o registrarse</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                        required autocomplete="email">
+                                </div>
+                                <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
+                                    <label for="inputPassword" class="form-label">Contraseña</label>
+                                    <div class="d-flex flex-row align-items-center justify-content-evenly">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required
+                                            autocomplete="current-password">
+                                        <span class="material-symbols-sharp ms-2 d-block" id="visibilityOn">visibility</span>
+                                        <span class="material-symbols-sharp ms-2 d-none" id="visibilityOff">visibility_off</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="logCheckBox">
+                                    <label class="form-check-label" for="logCheckBox">Mantener sesión iniciada</label>
+                                </div>
+                                <input type="submit" style="display: none;" id="submitLoginBtn">
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between align-items-center">
+                            <button type="button" class="btn registerBtn" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Registrarme
+                            </button>
+                            <div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn" id="logBtn">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal to register -->
+        <section>
+            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="registerForm">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="registerModalLabel">Registrarse</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputRegisterFullName" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="inputRegisterFullName"
+                                        aria-describedby="nameHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputRegisterEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="inputRegisterEmail"
+                                        aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text">Nunca compartiremos tu email con entidades externas
+                                    </div>
+                                </div>
+                                <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
+                                    <label for="inputRegisterPassword" class="form-label">Contraseña</label>
+                                    <div class="d-flex flex-row align-items-center justify-content-evenly">
+                                        <input type="password" class="form-control" id="inputRegisterPassword"
+                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required>
+                                        <span class="material-symbols-sharp">visibility</span>
+                                        <span class="material-symbols-sharp">visibility_off</span>
+                                    </div>
+                                    <div id="passwordHelp" class="form-text">Tu contraseña debe tener un mínimo de 8 caracteres
+                                        y tenés que
+                                        usar números, letras mayúsculas/minúsculas y símbolos.</div>
+                                </div>
+                                <input type="submit" style="display: none;" id="submitRegisterBtn">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">Volver</button>
+                            <button type="submit" class="btn registerBtn" id="registerBtn">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="logoutModalLabel">Cerrar sesión</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro/a que querés finalizar tu sesión?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn" id="endClientSession">Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="row mx-0">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-md-7 col-lg-7 mx-0 py-0 px-3">
+                    <div class="aboutDetails px-3">
+                        <h1 class="aboutItem titleTop mb-2">
+                            Sobre <span class="rounded p-1" id="usWord">nosotros</span>
+                        </h1>
+                        <h2 class="aboutItem">
+                            ¿Qué es LTH Store?
+                        </h2>
+                        <p class="px-3 aboutItem">
+                            En LTH Store, nos dedicamos a proveer los insumos esenciales para que puedas sumergirte en el emocionante mundo de la minería de criptomonedas. Ofrecemos una amplia gama de equipos, desde potentes mineros hasta componentes de calidad, diseñados para optimizar tu experiencia de minería. 
+                            <br>
+                            Nuestra pasión por la tecnología y el compromiso con la calidad nos impulsan a brindarte soluciones confiables y asesoramiento experto. Con LTH Store, estás respaldado por una fuente confiable de herramientas y conocimientos para prosperar en la minería de criptomonedas en Argentina y más allá.
+                        </p>
+                    </div>
+                    <hr class="aboutItem">
+                    <div class="container-fluid my-4 px-3 py-3 contactForm">
+                        <form class="form d-flex flex-column" action="https://formspree.io/f/mnqkdnln" method="POST" id="contactForm">
+                            <h2 class="aboutItem">¡Completá el formulario para contactarte!</h2>
+                            <label class="form-label mt-4 contactItem" for="name" >Nombre:</label>
+                            <input class="p-2 form-control" type="text" id="name" placeholder="Escribe tu nombre completo..." required>
+                            <label class="form-label mt-4 contactItem" for="email">Email:</label>
+                            <input class="p-2 form-control" type="email" name="email" id="email" placeholder="ejemplo@email.com" required>
+                            <label class="form-label mt-4 contactItem" for="textBox">¡Dejanos un mensaje!</label>
+                            <textarea class="p-2 form-control" name="textBox" id="textBox" rows="6" placeholder="Escribí tu mensaje..."></textarea>
+                            <button class="btn mt-3 fs-5" id="sendItem">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+                <iframe class="col-xs-12 col-sm-12 col-md-12 col-lg-4 px-0 mx-2 mb-5 rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217955.00184323578!2d-64.35902541600714!3d-31.399054706621524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2zQ8OzcmRvYmE!5e0!3m2!1ses!2sar!4v1691437554022!5m2!1ses!2sar" width="420" height="820" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <hr class="aboutItem">
+            <div class="container mt-5">
+                <h2 class="aboutItem">Nuestros clientes</h2>
+                <div class="container insights row d-flex justify-content-between mt-2 mb-5 mx-0 p-1">
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mx-1 my-3 aboutItem">
+                        <h6>María G. - Buenos Aires:</h6>
+                        <p class="text-start">
+                            "Increíble experiencia con la compra de mi primer equipo de minería. La asesoría personalizada fue clave para tomar la decisión correcta. El equipo funciona a la perfección, y el servicio técnico es excepcional."
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mx-1 my-3 aboutItem">
+                        <h6>Carlos M. - Córdoba:</h6>
+                        <p class="text-start">
+                            "No podría estar más satisfecho con la compra de mi ASIC. El rendimiento superó mis expectativas y la garantía de un año me da mucha tranquilidad. ¡Definitivamente recomiendo esta empresa!"
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mx-1 my-3 aboutItem">
+                        <h6>Lorena P. - Rosario:</h6>
+                        <p class="text-start">
+                            "El hosting de mi equipo de minería ha sido una solución increíblemente conveniente. La atención al cliente siempre está disponible y he experimentado cero interrupciones en mi operación. ¡Gracias por simplificar mi vida minera!"
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mx-1 my-3 aboutItem">
+                        <h6>Laura C. - La Plata:</h6>
+                        <p class="text-start">
+                            "El servicio técnico 24/7 es un salvavidas. Me ayudaron a resolver un problema de configuración en minutos, incluso durante la madrugada. ¡Son profesionales y amigables al mismo tiempo!"
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mx-1 my-3 aboutItem">
+                        <h6>Javier A. - Neuquén:</h6>
+                        <p class="text-start">
+                            "Mi experiencia con el equipo de minería GPU ha sido altamente rentable. No solo el equipo es eficiente, sino que la comunidad en línea de la empresa me ha proporcionado valiosos consejos para optimizar mi rendimiento."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--* Footer -->
+    <footer class="container-fluid footerClass px-3 py-3 d-flex flex-row align-items-center justify-content-between flex-wrap" id="footerId">
+        <div class="container-fluid px-5 d-flex flex-row justify-content-evenly  flex-wrap">
+            <h5 class="footerItem my-0 mt-4 mb-4">Córdoba Capital, Córdoba. Argentina</h5>
+            <p class="footerItem my-0 mt-4 mb-4">
+                ©LTH Store | Todos los derechos reservados
+            </p>
+        </div>
+        <div class="container-fluid callToActionFooter">
+                <ul class="d-flex flex-row align-items-center flex-wrap justify-content-evenly my-0 px-0 nav-underline">
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link"  href="https://www.andreani.com/#!/personas" target="_blank" rel="prefetch">Seguí tu pedido</a>
+                    </li>
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link"  href="../pages/us.html" target="_blank" rel="prefetch">¡Contactanos!</a>
+                    </li>
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link"  href="https://www.instagram.com/lth.mining/" target="_blank" rel="prefetch">
+                        Instagram
+                    </a>
+                    </li>
+                </ul>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js" rel="preload"></script>
+</body>
+</html>

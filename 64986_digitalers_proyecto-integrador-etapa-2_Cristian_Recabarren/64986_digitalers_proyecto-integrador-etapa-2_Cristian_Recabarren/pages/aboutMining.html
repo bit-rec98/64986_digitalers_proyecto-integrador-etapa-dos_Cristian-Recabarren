@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" id="html" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <title>LTH Store - Recursos</title>
+</head>
+<body id="bodyId">
+    <header class="container-fluid headerClass mx-0 px-0 mb-5 sticky-top">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navClass nav-underline" id="navId">
+            <div class="container-fluid navbarItems">
+                <!--! Logo goes here -->
+                    <div class="logo">
+                    <a class="navbar-brand mx-3" href="index.html"><img src="/img/logoLightMode.png" alt="logo" id="logoImg" loading="lazy"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navItemContainer" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <!--! me-auto para colocar elementos a la derecha -->
+                        <li class="nav-item mx-2">
+                        <a class="nav-link" aria-current="page" href="../index.html" rel="prefetch">Inicio</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="./us.html" rel="prefetch">Nosotros</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="./products.html" rel="prefetch">Productos</a>
+                        </li>
+                    </ul>
+                    <div class="login mx-2" id="log">
+                        <button type="button" class="material-symbols-sharp" id="loginBtn" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                            login
+                        </button>
+                        <button type="button" class="material-symbols-sharp" id="logoutBtn" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">
+                            logout
+                        </button>
+                    </div>
+                    <div class="togglerMode mx-2">
+                        <button class="material-symbols-sharp d-none navItem" id="lightModeBtn">
+                            light_mode
+                        </button>
+                        <button class="material-symbols-sharp d-block navItem" id="darkModeBtn">
+                            dark_mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="container">
+        <!-- Login modal -->
+        <section>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="loginForm">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión o registrarse</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                        required autocomplete="email">
+                                </div>
+                                <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
+                                    <label for="inputPassword" class="form-label">Contraseña</label>
+                                    <div class="d-flex flex-row align-items-center justify-content-evenly">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required
+                                            autocomplete="current-password">
+                                        <span class="material-symbols-sharp ms-2 d-block" id="visibilityOn">visibility</span>
+                                        <span class="material-symbols-sharp ms-2 d-none" id="visibilityOff">visibility_off</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="logCheckBox">
+                                    <label class="form-check-label" for="logCheckBox">Mantener sesión iniciada</label>
+                                </div>
+                                <input type="submit" style="display: none;" id="submitLoginBtn">
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between align-items-center">
+                            <button type="button" class="btn registerBtn" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Registrarme
+                            </button>
+                            <div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn" id="logBtn">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal to register -->
+        <section>
+            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="registerForm">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="registerModalLabel">Registrarse</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputRegisterFullName" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="inputRegisterFullName"
+                                        aria-describedby="nameHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputRegisterEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="inputRegisterEmail"
+                                        aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text">Nunca compartiremos tu email con entidades externas
+                                    </div>
+                                </div>
+                                <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
+                                    <label for="inputRegisterPassword" class="form-label">Contraseña</label>
+                                    <div class="d-flex flex-row align-items-center justify-content-evenly">
+                                        <input type="password" class="form-control" id="inputRegisterPassword"
+                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required>
+                                        <span class="material-symbols-sharp">visibility</span>
+                                        <span class="material-symbols-sharp">visibility_off</span>
+                                    </div>
+                                    <div id="passwordHelp" class="form-text">Tu contraseña debe tener un mínimo de 8 caracteres
+                                        y tenés que
+                                        usar números, letras mayúsculas/minúsculas y símbolos.</div>
+                                </div>
+                                <input type="submit" style="display: none;" id="submitRegisterBtn">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">Volver</button>
+                            <button type="submit" class="btn registerBtn" id="registerBtn">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="logoutModalLabel">Cerrar sesión</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro/a que querés finalizar tu sesión?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn" id="endClientSession">Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h1 class="title text-center">Información útil y recomendaciones</h1>
+            <ul class="list-unstyled row my-5">
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-8 my-2 mx-0 p-3">
+                    <h5>Ubicación adecuada:</h5>
+                    <p class="d-inline-block mx-2">
+                        Colocá los equipos de minería en un lugar bien ventilado y libre de obstrucciones para evitar el sobrecalentamiento. Evitá espacios cerrados o con poca circulación de aire, ya que esto puede afectar el rendimiento de tus equipos.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-4 my-2 mx-0 p-3">
+                    <h5>Control de temperatura:</h5>
+                    <p class="d-inline-block mx-2">
+                        Mantené una temperatura ambiente óptima para tus equipos. Evitá cambios bruscos de temperatura, ya que pueden afectar su funcionamiento y durabilidad.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-4 my-2 mx-0 p-3">
+                    <h5>Energía estable:</h5>
+                    <p class="d-inline-block mx-2">
+                        Conectá tus equipos a fuentes de energía estables y protegidas contra picos eléctricos. Te recomendamos considerar el uso de reguladores de voltaje o sistemas de respaldo para asegurarte un suministro constante.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-8 my-2 mx-0 p-3">
+                    <h5>Organización del cableado:</h5>
+                    <p class="d-inline-block mx-2">
+                        Asegurate de mantener los cables ordenados y bien gestionados. Esto no solo facilitará la circulación del aire, sino que también prevendrá enredos que puedan causar inconvenientes.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-3 my-2 mx-0 p-3">
+                    <h5>Limpieza regular:</h5>
+                    <p class="d-inline-block mx-2">
+                        Realizá limpiezas periódicas para evitar la acumulación de polvo y suciedad en los componentes. Utilizá aire comprimido y herramientas adecuadas para mantener tus equipos en óptimas condiciones.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-6 my-2 mx-0 p-3">
+                    <h5>Actualización de software:</h5>
+                    <p class="d-inline-block mx-2">
+                        Mantené siempre actualizado el software de tus equipos y las aplicaciones de minería. Las actualizaciones suelen incluir mejoras de rendimiento y seguridad.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-3 my-2 mx-0 p-3">
+                    <h5>Monitoreo constante:</h5>
+                    <p class="d-inline-block mx-2">
+                        Utilizá herramientas de monitoreo para supervisar la temperatura, el consumo de energía y el rendimiento de tus equipos. Detectar problemas a tiempo es clave para prevenir daños mayores.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-6 my-2 mx-0 p-3">
+                    <h5>Diversificación de criptomonedas</h5>
+                    <p class="d-inline-block mx-2">
+                        Tené en cuenta la posibilidad de minar diferentes criptomonedas según la rentabilidad y las condiciones del mercado. La diversificación puede ayudarte a reducir riesgos.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-6 my-2 mx-0 p-3">
+                    <h5>Respaldo de datos:</h5>
+                    <p class="d-inline-block mx-2">
+                        Realizá copias de respaldo de tus configuraciones y datos importantes de minería. Esto te permitirá recuperar la información en caso de fallas o inconvenientes.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-4 my-2 mx-0 p-3">
+                    <h5>Mantenimiento preventivo:</h5>
+                    <p class="d-inline-block mx-2">
+                        Programá mantenimientos preventivos regulares para inspeccionar y mantener tus equipos en condiciones óptimas. Esto alargará su vida útil y mejorará su rendimiento.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-4 my-2 mx-0 p-3">
+                    <h5>Seguridad informática:</h5>
+                    <p class="d-inline-block mx-2">
+                        Mantené una sólida seguridad cibernética. Utilizá contraseñas seguras, activá la autenticación de dos factores y mantén tus sistemas actualizados para prevenir posibles ataques.
+                    </p>
+                </li>
+                <li class="infoItem col-xs-12 col-sm-12 col-md-6 col-lg-4 my-2 mx-0 p-3">
+                    <h5>Educación continua:</h5>
+                    <p class="d-inline-block mx-2">
+                        Mantenete informado sobre las últimas tendencias y avances en la minería de criptomonedas. La educación constante te permitirá tomar decisiones más informadas y adaptarte a los cambios del mercado.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="container my-5">
+            <h2 class="title">Recursos externos</h2>
+            <div class="row my-5 d-flex justify-content-center">
+
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://www.binance.com/es" rel="prefetch"><img src="/img/logo/Binance-Logo.wine.svg" class="card-img-top" alt="binance" loading="lazy"></a>
+                    </div>
+                        <div class="card-body">
+                        <a href="https://www.binance.com/es" class="resourceLink text-decoration-none" rel="prefetch"><h5>Binance</h5></a>
+                        <a class="card-text text-decoration-none resourceLink" href="https://www.binance.com/es">Binance es uno de los exchanges líderes a nivel mundial, ofreciendo una plataforma segura y avanzada para comprar, vender y operar con una amplia gama de criptomonedas.</a>
+                    </div>
+                </div>
+
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://cuex.com/es/" target="_blank" rel="prefetch"><img src="/img/logo/cuex.png" class="card-img-top p-2 my-4" alt="cuex" loading="lazy"></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://cuex.com/es/" class="resourceLink text-decoration-none" target="_blank" rel="prefetch"><h5>CUEX - Conversor de divisas</h5></a>
+                        <a href="https://cuex.com/es/" class="card-text text-decoration-none resourceLink" target="_blank" rel="prefetch">Con CUEX, podrás calcular al instante el valor de criptomonedas y monedas locales en distintas tasas de cambio. Simplificá tus cálculos financieros y operaciones con esta herramienta confiable y de fácil uso.</a>
+                    </div>
+                </div>
+
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://whattomine.com/" target="_blank" rel="prefetch"><img src="/img/logo/whattomine.svg" class="card-img-top my-5" alt="whattomine" loading="lazy"></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://whattomine.com/" class="resourceLink text-decoration-none" target="_blank" rel="prefetch"><h5>WhatToMine</h5></a>
+                        <a href="https://whattomine.com/" class="card-text text-decoration-none resourceLink" target="_blank">
+                            En Whattomine, podrás simular la capacidad de diferentes tipos de hardware, desde ASIC miners hasta GPU rigs, ajustando configuraciones según tus necesidades. 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://www.asicminervalue.com/" target="_blank" rel="prefetch"><img src="/img/logo/asicminervalue.png" class="card-img-top my-5 p-1 rounded" alt="asicminervalue" loading="lazy"></a>
+                        
+                    </div>
+                    <div class="card-body">
+                        <a href="https://www.asicminervalue.com/" class="resourceLink text-decoration-none" target="_blank" rel="prefetch"><h5>Asic Miner Value</h5></a>
+                        <a href="https://www.asicminervalue.com/" class="card-text text-decoration-none resourceLink" target="_blank">Esta herramienta te brinda una visión completa de las opciones disponibles en el mercado, permitiéndote tomar decisiones informadas al seleccionar el equipo que mejor se adapte a tus objetivos y recursos.</a>
+                    </div>
+                </div>
+
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://cryptoavisos.com/comercio/rec-lithium" target="_blank" rel="prefetch"><img src="/img/logo/cryptoavisos.png" class="card-img-top my-5 p-1" alt="cryptoavisos"></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://cryptoavisos.com/comercio/rec-lithium" class="resourceLink text-decoration-none" target="_blank"><h5>CryptoAvisos</h5></a>
+                        <a href="https://cryptoavisos.com/comercio/rec-lithium" class="card-text text-decoration-none resourceLink" target="_blank">Descubrí nuestro perfil en el mercado p2p líder en Argentina. En CryptoAvisos, LTH Store te presenta una selección de productos mineros y de insumos para la minería de criptomonedas.</a>
+                    </div>
+                </div>
+
+                <div class="card externalResources col-4 mx-3 gy-3" style="width: 18rem;">
+                    <div class="imgBackground p-1 mt-2 rounded">
+                        <a href="https://es.tradingview.com/" target="_blank" rel="prefetch"><img src="/img/logo/tradingviewlogo.png" class="card-img-top my-5 p-1" alt="tradingview" loading="lazy"></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://es.tradingview.com/" class="resourceLink text-decoration-none" target="_blank" rel="prefetch"><h5>TradingView</h5></a>
+                        <a href="https://es.tradingview.com/" class="card-text text-decoration-none resourceLink" target="_blank">Con TradingView, podrás explorar gráficos interactivos y completos para rastrear el mercado de criptomonedas. Personalizá tus análisis con indicadores técnicos, patrones de precios y herramientas avanzadas.</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="container-fluid footerClass px-3 py-3 d-flex flex-row align-items-center justify-content-between flex-wrap" id="footerId">
+        <div class="container-fluid px-5 d-flex flex-row justify-content-evenly flex-wrap">
+            <h5 class="footerItem my-0 mt-4 mb-4">Córdoba Capital, Córdoba. Argentina</h5>
+            <p class="footerItem my-0 mt-4 mb-4">
+                ©LTH Store | Todos los derechos reservados
+            </p>
+        </div>
+        <div class="container-fluid callToActionFooter">
+                <ul class="d-flex flex-row align-items-center flex-wrap justify-content-evenly my-0 px-0 nav-underline">
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link" href="https://www.andreani.com/#!/personas" target="_blank" rel="prefetch">Seguí tu pedido</a>
+                    </li>
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link" href="../pages/us.html" target="_blank" rel="prefetch">¡Contactanos!</a>
+                    </li>
+                    <li class="p-1 mx-0">
+                    <a class="p-3 footerItem nav-link" href="https://www.instagram.com/lth.mining/" target="_blank" rel="prefetch">
+                        Instagram
+                    </a>
+                    </li>
+                </ul>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js" rel="preload"></script>
+</body>
+</html>

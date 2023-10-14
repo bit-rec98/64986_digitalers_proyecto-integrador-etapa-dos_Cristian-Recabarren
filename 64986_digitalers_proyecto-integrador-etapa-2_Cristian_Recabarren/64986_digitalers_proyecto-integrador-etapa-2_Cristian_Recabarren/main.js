@@ -7,29 +7,53 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 // Source code 
 import { 
+    disableBtns,
     structure, 
     toggleTheme
 } from './src/interface.js';
 
 import { 
-    addProduct,
-    readLocalStorage, 
-    deleteProductItem,
-    cleanCart,
-    processCart,
-    readLocalStorageAtCart,
-    deleteProductAtCart,
-    getEvent,
+    initSystem, 
+    isUserLoggedIn 
+} from "./src/registerLoginForms/getUserInfo.js";
+
+import { 
+    getUsersLocalStoraged 
+} from "./src/registerLoginForms/handleUsersLs.js";
+
+import {
+    checkLoginStatus, 
+    logOutUser 
+} from './src/registerLoginForms/handleLoginLogOutInterface.js';
+
+import { 
+    readLocalStorage
+} from './src/cart/handleProductsLs.js'
+import { 
+    addGpuProduct
+    , addProduct
+} from './src/cart/addProducts.js';
+
+import {
     calculateTotal,
-    addGpuProduct,
-} from './src/cart.js'
+    getEvent
+} from './src/cart/cartEvents.js'
 
-import { initSystem, isUserLoggedIn } from './src/getUserInfo';
-import { checkLoginStatus, logOutUser } from './src/handleLoginLogOutInterface';
-import { getUsersLocalStoraged } from './src/handleUsersLs';
+import {
+    processCart
+} from './src/cart/processProductsList.js'
 
+import {
+    cleanCart, 
+    deleteProductItem, 
+    deleteProductAtCart
+} from './src/cart/removeProducts.js'
 
+import {
+    readLocalStorageAtCart
+} from './src/cart/handleCartLs'
 
+// Executions
 structure.btnDarkMode.addEventListener("click", () => {
     toggleTheme('dark');
     if(structure.pathPage.includes('cart.html')){
@@ -47,33 +71,31 @@ structure.btnLightMode.addEventListener("click", () => {
     toggleTheme('light');
     if(structure.pathPage.includes('cart.html')){
         delete structure.loginBtn;
-    }
+    };
     if(!structure.pathPage.includes('aboutMining.html')){
         delete structure.infoItem
-    }
+    };
     if(!structure.pathPage.includes('products.html')){
         delete structure.processCartBtn
-    }
-})
+    };
+});
 
 const productsSection = document.getElementById('productsSection');
-
 const productsGpuSection = document.getElementById('productsGpuSection');
-
 const productsListing = document.getElementById('cartResume');
-
 const cartProductsList = document.getElementById('cartProductsProcessingList');
 
-loadEvents();
+document.addEventListener('DOMContentLoaded', loadEvents());
+
 function loadEvents(){
     const path = String(location.href);
-    if(path.includes('cart.html')){
+    if(path.includes('cart')){
         cartLocation();
-    } else if (path.includes('products.html')) {
+    } else if (path.includes('products')) {
         productsLocation();
     };
 
-    if (!path.includes('cart.html')) {
+    if (!path.includes('cart')) {
         initSystem();
         checkLoginStatus(isUserLoggedIn);
         getUsersLocalStoraged();
@@ -85,7 +107,6 @@ function loadEvents(){
 function productsLocation() {
     const cleanCartBtn = productsListing.querySelector('#emptyCartList');
     const processCartBtn = productsListing.querySelector('#processCartList');
-
     productsSection.addEventListener('click', (e) => {
         addProduct(e);
     });
@@ -96,6 +117,7 @@ function productsLocation() {
     productsListing.addEventListener('click', e => deleteProductItem(e));
     cleanCartBtn.addEventListener('click', e => cleanCart(e));
     processCartBtn.addEventListener('click', e => processCart(e));
+    disableBtns();
 };
 
 function cartLocation(){

@@ -1,0 +1,5 @@
+Nombre: Cristian Emanuel Recabarren
+
+Link a repositorio en GitHub: https://github.com/bit-rec98/64986_digitalers_proyecto-integrador-etapa-dos_Cristian-Recabarren.git
+
+Link del proyecto subido a Netlify: https://lthstore-v2.netlify.app/

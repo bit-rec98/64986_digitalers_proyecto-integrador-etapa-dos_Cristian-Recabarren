@@ -1,3 +1,5 @@
+import { isUserLoggedIn } from "./registerLoginForms/getUserInfo";
+
 const structure = {
     btnLightMode: document.getElementById('lightModeBtn'),
     btnDarkMode: document.getElementById('darkModeBtn'), 
@@ -179,6 +181,19 @@ function toggleTheme(theme){
 const userTheme = localStorage.getItem('theme');
 toggleTheme(userTheme || 'light');
 
+export function disableBtns(){
+    const addProductsBtns = document.querySelectorAll('.cardBody > .btnClass')
+    if(Boolean(isUserLoggedIn.connectSession) === false){
+        for(let i = 0; i < addProductsBtns.length; i++){
+            addProductsBtns[i].classList.add('disabled');
+        }
+    }; 
+    if(Boolean(isUserLoggedIn.connectSession) === false && structure.pathPage.includes('products')){
+        structure.cartBtn.classList.add('none');
+    } else if(Boolean(isUserLoggedIn.connectSession) === true && structure.pathPage.includes('products')) {
+        structure.cartBtn.classList.add('block');
+    };
+};
 
 export {
     toggleTheme,

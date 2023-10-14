@@ -1,4 +1,4 @@
-import { structure } from "./interface";
+import { structure } from "../interface";
 
 export function loginPasswordVisibility(){
     if(!structure.pathPage.includes('cart.html')){

@@ -1,15 +1,9 @@
-import { successToast } from "./getUserInfo";
-import { structure } from "./interface";
+import { successToast } from "../swalUsage.js";
 
 export function checkLoginStatus(isUserLoggedIn) {
     const logBtnsContainer = document.getElementById('log');
     const loginBtn = logBtnsContainer.querySelector('#loginBtn');
     const logoutBtn = logBtnsContainer.querySelector('#logoutBtn');
-    let cartBtn = null;
-
-    if (structure.pathPage.includes('products.html')) {
-        cartBtn = document.getElementById('cartBtn');
-    }
 
     isUserLoggedIn.connectSession = JSON.parse(localStorage.getItem('isUserLoggedIn'));
 
@@ -17,16 +11,9 @@ export function checkLoginStatus(isUserLoggedIn) {
         loginBtn.classList.add('d-none');
         logoutBtn.classList.remove('d-none');
 
-        if (cartBtn) {
-            cartBtn.classList.remove('d-none');
-        }
     } else {
         loginBtn.classList.remove('d-none');
         logoutBtn.classList.add('d-none');
-
-        if (cartBtn) {
-            cartBtn.classList.add('d-none');
-        };
     };
 };
 

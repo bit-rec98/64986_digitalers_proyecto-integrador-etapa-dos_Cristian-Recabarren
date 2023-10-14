@@ -1,5 +1,5 @@
 import { buildUser } from "./buildUserInstances";
-import { errorToast, successToast } from "./getUserInfo";
+import { errorToast, errorToastB, successToast } from "../swalUsage";
 import { getUsersLocalStoraged } from "./handleUsersLs";
 
 function generateUniqueUserId(users) {
@@ -18,32 +18,35 @@ export function getUserDataRegister(formStructure, isUserLoggedIn){
         };
         const usersRegistered = getUsersLocalStoraged();
         const isUserRegistered = usersRegistered.some(user => user.email === formData.email);
-
+        
         if (isUserRegistered === true) {
             errorToast.fire({
                 icon: 'error',
                 title: '¡Usuario ya registrado!'
             });
+        } else if ((!String(formData.email).includes('@')) || (!String(formData.email).includes('.'))){
+            errorToastB.fire({
+                icon: 'error',
+                title: '¡Tu usuario debe incluir @ y la correspondiente extensión con punto (.com/.net/.ar/.io), según corresponda!'
+            });
         } else {
-            
             formData.id = generateUniqueUserId(usersRegistered);
             buildUser(formData);
-            
             if(Boolean(isUserLoggedIn.connectSession) === false){
                 let isClientConnected = isUserLoggedIn.connectSession
                 isClientConnected = true;
                 localStorage.setItem('isUserLoggedIn', JSON.stringify(isClientConnected));
             };
             
-            formStructure.submitRegisterBtn.click();
-            console.log('Before submit');
-            formStructure.loginForm.submit();
-            console.log('After submit');
-
             successToast.fire({
                 icon: 'success',
                 title: '¡Bienvenido/a!'
             });
+            formStructure.submitRegisterBtn.click();
+
+            setTimeout(() =>{
+                window.location.reload();
+            }, 3000);
         };
     });
 };
@@ -70,12 +73,12 @@ export function getUserDataLogin(formStructure, isUserLoggedIn){
                 isClientConnected = true;
                 localStorage.setItem('isUserLoggedIn', JSON.stringify(isClientConnected));
             };
-            formStructure.submitLoginBtn.click();
             
             successToast.fire({
                 icon: 'success',
                 title: '¡Bienvenido/a!'
             });
+            formStructure.submitLoginBtn.click();
         } else {
             errorToast.fire({
                 icon: 'error',

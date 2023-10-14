@@ -69,13 +69,13 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="inputEmail" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                                        required autocomplete="email">
+                                    <input type="email" name="loginEmail" class="form-control" id="inputEmail"
+                                        aria-describedby="emailHelp" required autocomplete="email">
                                 </div>
                                 <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
                                     <label for="inputPassword" class="form-label">Contraseña</label>
                                     <div class="d-flex flex-row align-items-center justify-content-evenly">
-                                        <input type="password" class="form-control" id="inputPassword"
+                                        <input type="password" name="loginPassword" class="form-control" id="inputPassword"
                                             aria-describedby="passwordHelp" minlength="4" maxlength="20" required
                                             autocomplete="current-password">
                                         <span class="material-symbols-sharp ms-2 d-block"
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="logCheckBox">
+                                    <input type="checkbox" name="loginRememberMe" class="form-check-input" id="logCheckBox">
                                     <label class="form-check-label" for="logCheckBox">Mantener sesión iniciada</label>
                                 </div>
                                 <input type="submit" style="display: none;" id="submitLoginBtn">
@@ -119,12 +119,12 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="inputRegisterFullName" class="form-label">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="inputRegisterFullName"
+                                    <input type="text" name="fullName" class="form-control" id="inputRegisterFullName"
                                         aria-describedby="nameHelp" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputRegisterEmail" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="inputRegisterEmail"
+                                    <input type="email" name="registerEmail" class="form-control" id="inputRegisterEmail"
                                         aria-describedby="emailHelp">
                                     <div id="emailHelp" class="form-text">Nunca compartiremos tu email con entidades externas
                                     </div>
@@ -132,10 +132,13 @@
                                 <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
                                     <label for="inputRegisterPassword" class="form-label">Contraseña</label>
                                     <div class="d-flex flex-row align-items-center justify-content-evenly">
-                                        <input type="password" class="form-control" id="inputRegisterPassword"
-                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required>
-                                        <span class="material-symbols-sharp ms-2 d-block" id="registerVisibilityOn">visibility</span>
-                                        <span class="material-symbols-sharp ms-2 d-none" id="registerVisibilityOff">visibility_off</span>
+                                        <input type="password" name="registerPassword" class="form-control"
+                                            id="inputRegisterPassword" aria-describedby="passwordHelp" minlength="4"
+                                            maxlength="20" required>
+                                        <span class="material-symbols-sharp ms-2 d-block"
+                                            id="registerVisibilityOn">visibility</span>
+                                        <span class="material-symbols-sharp ms-2 d-none"
+                                            id="registerVisibilityOff">visibility_off</span>
                                     </div>
                                     <div id="passwordHelp" class="form-text">Tu contraseña debe tener un mínimo de 8 caracteres
                                         y tenés que
@@ -154,7 +157,8 @@
                 </div>
             </div>
         </section>
-
+        
+        <!-- Modal to logout -->
         <section>
             <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

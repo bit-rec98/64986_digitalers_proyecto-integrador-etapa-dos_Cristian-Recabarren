@@ -56,26 +56,26 @@ import {
 // Executions
 structure.btnDarkMode.addEventListener("click", () => {
     toggleTheme('dark');
-    if(structure.pathPage.includes('cart.html')){
+    if(structure.pathPage.includes('cart')){
         delete structure.loginBtn;
     }
-    if(!structure.pathPage.includes('aboutMining.html')){
+    if(!structure.pathPage.includes('aboutMining')){
         delete structure.infoItem
     }
-    if(!structure.pathPage.includes('products.html')){
+    if(!structure.pathPage.includes('products')){
         delete structure.processCartBtn
     }
 })
 
 structure.btnLightMode.addEventListener("click", () => {
     toggleTheme('light');
-    if(structure.pathPage.includes('cart.html')){
+    if(structure.pathPage.includes('cart')){
         delete structure.loginBtn;
     };
-    if(!structure.pathPage.includes('aboutMining.html')){
+    if(!structure.pathPage.includes('aboutMining')){
         delete structure.infoItem
     };
-    if(!structure.pathPage.includes('products.html')){
+    if(!structure.pathPage.includes('products')){
         delete structure.processCartBtn
     };
 });

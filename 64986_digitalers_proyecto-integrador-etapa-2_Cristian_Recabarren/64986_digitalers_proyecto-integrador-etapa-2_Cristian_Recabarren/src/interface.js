@@ -28,23 +28,22 @@ const structure = {
     infoItemP: document.querySelectorAll('.infoItem > p'),
     processCartBtn: document.getElementById('processCartList'),
     emptyCartList: document.getElementById('emptyCartList')
-}
-
-
+};
 
 const themeToggler = {
     darkMode: function(){
         const colorBgBody = 'linear-gradient(to bottom right, #F85E00, #232323, #121212)';
         const colorBgFooter = 'linear-gradient(to bottom, #484848, #232323, #121212)';
         const whiteSmoke = '#f5f5f5';
-        if(structure.pathPage.includes('products.html')){
+
+        if(structure.pathPage.includes('products')){
             structure.cartBtn.style.color = whiteSmoke;
         };
-        if(!structure.pathPage.includes('cart.html')){
+        if(!structure.pathPage.includes('cart')){
             structure.loginBtn.style.color = whiteSmoke;
             structure.logoutBtn.style.color = whiteSmoke;
         };
-        if(structure.pathPage.includes('products.html')){
+        if(structure.pathPage.includes('products')){
             structure.cartBtn.style.color = whiteSmoke;
             structure.processCartBtn.style.color = whiteSmoke;
             structure.emptyCartList.style.color = whiteSmoke;
@@ -87,7 +86,7 @@ const themeToggler = {
         for(let i = 0; i< structure.h6.length; i++){
             structure.h6[i].style.color = whiteSmoke;
         }
-        if(structure.pathPage.includes('aboutMining.html')){
+        if(structure.pathPage.includes('aboutMining')){
             for(let i = 0; i < structure.infoItem.length; i++){
                 structure.infoItem[i].addEventListener('mouseover', () => {
                     structure.infoItem[i].style.background = 'linear-gradient(to top right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 0.9))';
@@ -106,7 +105,7 @@ const themeToggler = {
         const colorBgBody = 'linear-gradient(to bottom, #f5f5f5, #444444)';
         const colorBgFooter = 'linear-gradient(to top, #444444, #f5f5f5)';
         const lightBlack = '#222222';
-        if(structure.pathPage.includes('products.html')){
+        if(structure.pathPage.includes('products')){
             structure.cartBtn.style.color = lightBlack;
             structure.processCartBtn.style.color = lightBlack;
             structure.emptyCartList.style.color = lightBlack;
@@ -120,7 +119,7 @@ const themeToggler = {
         structure.btnDarkMode.style.color = lightBlack;
         structure.btnLightMode.style.color = lightBlack;
         structure.body.style.background = colorBgBody;
-        if(!structure.pathPage.includes('cart.html')){
+        if(!structure.pathPage.includes('cart')){
             structure.loginBtn.style.color = lightBlack;
             structure.logoutBtn.style.color = lightBlack;
         }
@@ -153,7 +152,7 @@ const themeToggler = {
         for(let i = 0; i< structure.h6.length; i++){
             structure.h6[i].style.color = lightBlack;
         }
-        if(structure.pathPage.includes('aboutMining.html')){
+        if(structure.pathPage.includes('aboutMining')){
             for(let i = 0; i < structure.infoItem.length; i++){
                 structure.infoItem[i].addEventListener('mouseover', () => {
                     structure.infoItem[i].style.background = 'linear-gradient(to top right, rgba(70, 70, 70, 0.3), rgba(49, 49, 49, 0.5) , rgba(84, 84, 84, 0.9))';
@@ -182,20 +181,21 @@ const userTheme = localStorage.getItem('theme');
 toggleTheme(userTheme || 'light');
 
 export function disableBtns(){
-    const addProductsBtns = document.querySelectorAll('.cardBody > .btnClass')
+    const addProductsBtns = document.querySelectorAll('.cardBody > .btnClass');
     if(Boolean(isUserLoggedIn.connectSession) === false){
         for(let i = 0; i < addProductsBtns.length; i++){
             addProductsBtns[i].classList.add('disabled');
-        }
+        };
     }; 
+
     if(Boolean(isUserLoggedIn.connectSession) === false && structure.pathPage.includes('products')){
-        structure.cartBtn.classList.add('none');
+        structure.cartBtn.classList.add('d-none');
     } else if(Boolean(isUserLoggedIn.connectSession) === true && structure.pathPage.includes('products')) {
-        structure.cartBtn.classList.add('block');
+        structure.cartBtn.classList.add('d-block');
     };
 };
 
 export {
     toggleTheme,
     structure
-}
+};

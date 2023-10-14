@@ -1,7 +1,7 @@
 import { structure } from "../interface";
 
 export function loginPasswordVisibility(){
-    if(!structure.pathPage.includes('cart.html')){
+    if(!structure.pathPage.includes('cart')){
         const loginPasswordInput = document.getElementById('inputPassword');
         const loginVisibilityOn = document.getElementById('loginVisibilityOn');
         const loginVisibilityOff = document.getElementById('loginVisibilityOff');
@@ -38,7 +38,7 @@ export function loginPasswordVisibility(){
 };
 
 export function registerPasswordVisibility(){
-    if(!structure.pathPage.includes('cart.html')){
+    if(!structure.pathPage.includes('cart')){
         const registerPasswordInput = document.getElementById('inputRegisterPassword')
         const registerVisibilityOn = document.getElementById('registerVisibilityOn');
         const registerVisibilityOff = document.getElementById('registerVisibilityOff');

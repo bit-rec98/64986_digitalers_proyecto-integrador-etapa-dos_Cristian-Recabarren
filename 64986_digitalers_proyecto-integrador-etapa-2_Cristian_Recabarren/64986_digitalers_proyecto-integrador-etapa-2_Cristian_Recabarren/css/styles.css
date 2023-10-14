@@ -199,19 +199,6 @@
     color: #222;
 }
 
-/** SOLVE COLOR HERE */
-section ul .infoItem:hover{
-    background: linear-gradient(to top right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 0.9));
-    cursor: default;
-    
-}
-section ul .infoItem h5:hover, section ul .infoItem p:hover{
-    color: #222;
-    transition-property: background;
-    transition-duration: 3s;
-    transition-timing-function: ease-in-out;
-}
-
 .imgBackground{
     height: 10rem;
     background-color: #f5f5f5;

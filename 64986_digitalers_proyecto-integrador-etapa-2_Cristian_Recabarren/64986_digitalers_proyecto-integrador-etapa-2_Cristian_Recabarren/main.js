@@ -24,13 +24,11 @@ import {
     addGpuProduct,
 } from './src/cart.js'
 
-import { 
-    checkLoginStatus,
-    getUsersLocalStoraged,
-    initSystem,
-    isUserLoggedIn,
-    logOutUser
-} from './src/getUserInfo.js';
+import { initSystem, isUserLoggedIn } from './src/getUserInfo';
+import { checkLoginStatus, logOutUser } from './src/handleLoginLogOutInterface';
+import { getUsersLocalStoraged } from './src/handleUsersLs';
+
+
 
 structure.btnDarkMode.addEventListener("click", () => {
     toggleTheme('dark');
@@ -80,7 +78,7 @@ function loadEvents(){
         checkLoginStatus(isUserLoggedIn);
         getUsersLocalStoraged();
         const logoutBtn = document.querySelector('#endClientSession');
-        logoutBtn.addEventListener('click', () => logOutUser(isUserLoggedIn.connectSession));
+        logoutBtn.addEventListener('click', () => logOutUser(isUserLoggedIn));
     };
 };
 
@@ -99,6 +97,7 @@ function productsLocation() {
     cleanCartBtn.addEventListener('click', e => cleanCart(e));
     processCartBtn.addEventListener('click', e => processCart(e));
 };
+
 function cartLocation(){
     calculateTotal();
     document.addEventListener('DOMContentLoaded', readLocalStorageAtCart());

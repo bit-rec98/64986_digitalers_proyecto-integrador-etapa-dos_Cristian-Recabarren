@@ -56,6 +56,7 @@
 
     <!--* Main content -->
     <main class="container mainClass py-3" data-barba="container" data-barba-namespace="home">
+      
       <!-- Login modal -->
       <section>
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -77,8 +78,8 @@
                     <div class="d-flex flex-row align-items-center justify-content-evenly">
                       <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp"
                         minlength="4" maxlength="20" required autocomplete="current-password">
-                      <span class="material-symbols-sharp ms-2 d-block" id="visibilityOn" >visibility</span>
-                      <span class="material-symbols-sharp ms-2 d-none" id="visibilityOff">visibility_off</span>
+                      <span class="material-symbols-sharp ms-2 d-block" id="loginVisibilityOn" >visibility</span>
+                      <span class="material-symbols-sharp ms-2 d-none" id="loginVisibilityOff">visibility_off</span>
                     </div>
                   </div>
                   <div class="mb-3 form-check">
@@ -128,8 +129,8 @@
                     <div class="d-flex flex-row align-items-center justify-content-evenly">
                       <input type="password" class="form-control" id="inputRegisterPassword" aria-describedby="passwordHelp"
                         minlength="4" maxlength="20" required>
-                      <span class="material-symbols-sharp">visibility</span>
-                      <span class="material-symbols-sharp">visibility_off</span>
+                      <span class="material-symbols-sharp ms-2 d-block" id="registerVisibilityOn">visibility</span>
+                      <span class="material-symbols-sharp ms-2 d-none" id="registerVisibilityOff">visibility_off</span>
                     </div>
                     <div id="passwordHelp" class="form-text">Tu contraseña debe tener un mínimo de 8 caracteres
                       y tenés que
@@ -140,7 +141,9 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                  data-bs-target="#loginModal">Volver</button>
+                  data-bs-target="#loginModal">
+                  Volver
+                </button>
                 <button type="submit" class="btn registerBtn" id="registerBtn">Registrarse</button>
               </div>
             </div>

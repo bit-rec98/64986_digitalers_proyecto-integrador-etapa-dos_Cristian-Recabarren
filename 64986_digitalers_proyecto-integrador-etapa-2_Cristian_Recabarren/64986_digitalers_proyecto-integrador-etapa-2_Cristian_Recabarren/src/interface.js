@@ -22,9 +22,13 @@ const structure = {
     cartBtn: document.getElementById('cartBtn'),
     pathPage: String(location.href),
     infoItem: document.getElementsByClassName('infoItem'),
+    infoItemH5: document.querySelectorAll('.infoItem > H5'),
+    infoItemP: document.querySelectorAll('.infoItem > p'),
     processCartBtn: document.getElementById('processCartList'),
     emptyCartList: document.getElementById('emptyCartList')
 }
+
+
 
 const themeToggler = {
     darkMode: function(){
@@ -83,9 +87,18 @@ const themeToggler = {
         }
         if(structure.pathPage.includes('aboutMining.html')){
             for(let i = 0; i < structure.infoItem.length; i++){
-                structure.infoItem[i].style.color = '#222222';
-            }
-        }
+                structure.infoItem[i].addEventListener('mouseover', () => {
+                    structure.infoItem[i].style.background = 'linear-gradient(to top right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 0.9))';
+                    structure.infoItemH5[i].style.color = '#222222';
+                    structure.infoItemP[i].style.color = '#222222';
+                });
+                structure.infoItem[i].addEventListener('mouseout', () => {
+                    structure.infoItem[i].style.background = 'transparent';
+                    structure.infoItemH5[i].style.color = '#F5F5F5';
+                    structure.infoItemP[i].style.color = '#F5F5F5';
+                });
+            };
+        };
     },
     lightMode: function(){
         const colorBgBody = 'linear-gradient(to bottom, #f5f5f5, #444444)';
@@ -140,11 +153,20 @@ const themeToggler = {
         }
         if(structure.pathPage.includes('aboutMining.html')){
             for(let i = 0; i < structure.infoItem.length; i++){
-                structure.infoItem[i].style.color = lightBlack;
-            }
-        }
+                structure.infoItem[i].addEventListener('mouseover', () => {
+                    structure.infoItem[i].style.background = 'linear-gradient(to top right, rgba(70, 70, 70, 0.3), rgba(49, 49, 49, 0.5) , rgba(84, 84, 84, 0.9))';
+                    structure.infoItemH5[i].style.color = '#F5F5F5';
+                    structure.infoItemP[i].style.color = '#F5F5F5';
+                });
+                structure.infoItem[i].addEventListener('mouseout', () => {
+                    structure.infoItem[i].style.background = 'transparent';
+                    structure.infoItemH5[i].style.color = lightBlack;
+                    structure.infoItemP[i].style.color = lightBlack;
+                });
+            };
+        };
     }
-}
+};
 
 function toggleTheme(theme){
     if(theme === 'dark'){

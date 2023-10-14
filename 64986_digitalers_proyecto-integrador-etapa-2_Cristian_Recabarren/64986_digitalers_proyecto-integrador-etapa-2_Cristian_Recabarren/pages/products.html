@@ -58,53 +58,55 @@
     </header>
     
     <main>
-            <!-- Login modal -->
-            <section>
-                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content" id="loginForm">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión o registrarse</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="inputEmail" class="form-label">Correo electrónico</label>
-                                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                                            required autocomplete="email">
-                                    </div>
-                                    <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
-                                        <label for="inputPassword" class="form-label">Contraseña</label>
-                                        <div class="d-flex flex-row align-items-center justify-content-evenly">
-                                            <input type="password" class="form-control" id="inputPassword"
-                                                aria-describedby="passwordHelp" minlength="4" maxlength="20" required
-                                                autocomplete="current-password">
-                                            <span class="material-symbols-sharp ms-2 d-block" id="visibilityOn">visibility</span>
-                                            <span class="material-symbols-sharp ms-2 d-none" id="visibilityOff">visibility_off</span>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="logCheckBox">
-                                        <label class="form-check-label" for="logCheckBox">Mantener sesión iniciada</label>
-                                    </div>
-                                    <input type="submit" style="display: none;" id="submitLoginBtn">
-                                </form>
-                            </div>
-                            <div class="modal-footer d-flex flex-row justify-content-between align-items-center">
-                                <button type="button" class="btn registerBtn" data-bs-toggle="modal"
-                                    data-bs-target="#registerModal">
-                                    Registrarme
-                                </button>
-                                <div>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn" id="logBtn">Iniciar sesión</button>
+        <!-- Login modal -->
+        <section>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="loginForm">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión o registrarse</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                        required autocomplete="email">
                                 </div>
+                                <div class="mb-3 d-flex flex-column align-items-stretch justify-content-evenly">
+                                    <label for="inputPassword" class="form-label">Contraseña</label>
+                                    <div class="d-flex flex-row align-items-center justify-content-evenly">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            aria-describedby="passwordHelp" minlength="4" maxlength="20" required
+                                            autocomplete="current-password">
+                                        <span class="material-symbols-sharp ms-2 d-block"
+                                            id="loginVisibilityOn">visibility</span>
+                                        <span class="material-symbols-sharp ms-2 d-none"
+                                            id="loginVisibilityOff">visibility_off</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="logCheckBox">
+                                    <label class="form-check-label" for="logCheckBox">Mantener sesión iniciada</label>
+                                </div>
+                                <input type="submit" style="display: none;" id="submitLoginBtn">
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between align-items-center">
+                            <button type="button" class="btn registerBtn" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Registrarme
+                            </button>
+                            <div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn" id="logBtn">Iniciar sesión</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
         
         <!-- Modal to register -->
         <section>
@@ -134,8 +136,8 @@
                                     <div class="d-flex flex-row align-items-center justify-content-evenly">
                                         <input type="password" class="form-control" id="inputRegisterPassword"
                                             aria-describedby="passwordHelp" minlength="4" maxlength="20" required>
-                                        <span class="material-symbols-sharp">visibility</span>
-                                        <span class="material-symbols-sharp">visibility_off</span>
+                                        <span class="material-symbols-sharp ms-2 d-block" id="registerVisibilityOn">visibility</span>
+                                        <span class="material-symbols-sharp ms-2 d-none" id="registerVisibilityOff">visibility_off</span>
                                     </div>
                                     <div id="passwordHelp" class="form-text">Tu contraseña debe tener un mínimo de 8 caracteres
                                         y tenés que
@@ -145,8 +147,9 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                data-bs-target="#loginModal">Volver</button>
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                Volver
+                            </button>
                             <button type="submit" class="btn registerBtn" id="registerBtn">Registrarse</button>
                         </div>
                     </div>
